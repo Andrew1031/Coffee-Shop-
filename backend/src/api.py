@@ -19,6 +19,13 @@ CORS(app)
 '''
 db_drop_and_create_all()
 
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,true')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, PATCH, POST, DELETE, OPTIONS')
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 # ROUTES
 '''
 @TODO implement endpoint
@@ -44,9 +51,9 @@ def get_drinks():
     returns status code 200 and json {"success": True, "drinks": drinks} where drinks is the list of drinks
         or appropriate status code indicating reason for failure
 '''
-@requires_auth('get:drinks-detail')
 @app.route('/drinks-detail', methods=['GET'])
-def get_drinks_detail():
+@requires_auth('get:drinks-detail')
+def get_drinks_detail(payload):
     drinks = list(map(Drink.long, Drink.query.all()))
     return jsonify({
         'success': True,
@@ -62,9 +69,9 @@ def get_drinks_detail():
     returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the newly created drink
         or appropriate status code indicating reason for failure
 '''
-@requires_auth('post:drinks')
 @app.route('/drinks', methods=['POST'])
-def create_drink():
+@requires_auth('post:drinks')
+def create_drink(payload):
     try:
         req = request.get_json()
         drink = Drink(title=req['title'], recipe=json.dumps(req['recipe']))
@@ -88,13 +95,13 @@ def create_drink():
     returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the updated drink
         or appropriate status code indicating reason for failure
 '''
-@requires_auth('patch:drinks')
 @app.route('/drinks/<id>', methods=['PATCH'])
-def edit_drink():
+@requires_auth('patch:drinks')
+def edit_drink(payload, id):
     try:
         newData = request.get_json()
         editDrink = Drink.query.filter(Drink.id==id).one_or_none()
-
+        # print(editDrink)
         if editDrink is None:
             abort(404)
 
@@ -122,9 +129,9 @@ def edit_drink():
         or appropriate status code indicating reason for failure
 '''
 
-@requires_auth('delete:drinks')
 @app.route('/drinks/<id>', methods=['DELETE'])
-def delete_drink():
+@requires_auth('delete:drinks')
+def delete_drink(payload, id):
     try:
         deleteDrink = Drink.query.filter(Drink.id==id).one_or_none()
         if deleteDrink is None:

@@ -6,9 +6,21 @@ export const environment = {
   production: false,
   apiServerUrl: 'http://127.0.0.1:5000', // the running FLASK api server url
   auth0: {
-    url: '', // the auth0 domain prefix
-    audience: '', // the audience set for the auth0 app
-    clientId: '', // the client id generated for the auth0 app
+    url: 'coffeeshop12345.us', // the auth0 domain prefix
+    audience: 'http://localhost:5000/', // the audience set for the auth0 app
+    clientId: 'yksIOosx6yAjMKFX8QckxlMzHy9YS4xx', // the client id generated for the auth0 app
     callbackURL: 'http://localhost:8100', // the base url of the running ionic application. 
   }
 };
+
+/*
+andrewyee67@gmail.com JWT :
+
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImlULWIwZzF4N2NfODlzSzFfOVJhOSJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZXNob3AxMjM0NS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBjOTcxOTZkMDJmNjUwMDY5NWM2YTMxIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwLyIsImlhdCI6MTYyMzgxNzMxMywiZXhwIjoxNjIzODI0NTEzLCJhenAiOiJ5a3NJT29zeDZ5QWpNS0ZYOFFja3hsTXpIeTlZUzR4eCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmRyaW5rcy1kZXRhaWwiXX0.sqe-TYET4kVaTkQJuESSXqbAGcrgtkGJw2PyYb5bHT3tvMINC0GUCsHeGQGC929UqZiajKCPSdN2xOhSbe_kQufVcRWONW2KmQjIyTDjAdx9fqzVKf05er9Yv_FOx6o5Zpmrgeiq9fmCdlX5_ytcCikzGGeBu637dMt4ly2M4t-Cpdgx6xaDZhrlY4tXVyLAW6KFkjwdAalBuAJnQ0hV66vjPndtQtfM8aWF6qZI4eCGv94rFHZJaU6T1L5qv34ksIJ61MbxFj9RyCqz5_YRRx_LJeScgitBKMujy9Gq591bB5Wu6ilV8C9kE1YRBQr4uNfR6KSrWAphX-PbSywy6w
+
+a8yee@ucsd.edu JWT :
+
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImlULWIwZzF4N2NfODlzSzFfOVJhOSJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZXNob3AxMjM0NS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBjOTcxYmEzNDhlZGMwMDZhMjI2NGI1IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwLyIsImlhdCI6MTYyMzgxNzU3NSwiZXhwIjoxNjIzODI0Nzc1LCJhenAiOiJ5a3NJT29zeDZ5QWpNS0ZYOFFja3hsTXpIeTlZUzR4eCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmRyaW5rcyIsImdldDpkcmlua3MtZGV0YWlsIiwicGF0Y2g6ZHJpbmtzIiwicG9zdDpkcmlua3MiXX0.n4dCyIKJcjU6mT4uGM61Fam8luZm2ccgHnFiKLWsMLpwXSexIup3x5d162Yc0VGWkOrhUncAuJ5j0pn5F_ztFS4_u990cjhnppogNBi4UVPRRJMsy77-c87geokOD9mmNeKRAVLm68b1RVFJlS8RDFEaSOiv0XK2l7Rtm2OJTYZsifZ2d0wmZuYfK-370-KL06tbx9gbnKOCFPfyeHypc7vuJd0Eddb830rlgFExdqpNIo7Y8lQjAk0LAAeS8yxGBUYlf30ndyMWsnuD1EdSSVBZGdsgGu2MzUh4bFGgWLC1OsVn33HPh0oMzAJQ1L7-cl-VqViF6seytElkC7ptGg
+
+./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json
+*/
